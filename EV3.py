@@ -1,20 +1,26 @@
 from ev3dev.ev3 import *
-import time
+from os import *
 import random
+import time
 
+#A=LargeMotor('outA')
+#B=LargeMotor('outB')
 
-A=LargeMotor('outA')
-B=LargeMotor('outB')
-
-
-bpm = 131
+f=open("bpm.txt","r")
+bpm = int(f.readline()) #Must be fixed
+print(bpm)
 sleepTime = 0.092*1.5
 power = 300
 
-M1A1 = LargeMotor('in1:i2c3:M1')
-M1A2 = LargeMotor('in1:i2c3:M2')
-M2A1 = LargeMotor('in2:i2c3:M1')
-M2A2 = LargeMotor('in2:i2c3:M2')
+M1A1 = MediumMotor('outA')
+M1A2 = MediumMotor('outB')
+M2A1 = MediumMotor('outC')
+M2A2 = MediumMotor('outD')
+
+#M1A1 = LargeMotor('in1:i2c3:M1')
+#M1A2 = LargeMotor('in1:i2c3:M2')
+#M2A1 = LargeMotor('in2:i2c3:M1')
+#M2A2 = LargeMotor('in2:i2c3:M2')
 
 while 1:
 
@@ -817,4 +823,3 @@ while 1:
         M2A2.stop(stop_action = "brake")
 
         time.sleep(sleepTime)
-
