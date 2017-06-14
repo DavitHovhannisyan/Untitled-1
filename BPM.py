@@ -16,11 +16,12 @@ from paramiko import client
 
 import inspect
 import sys
+from os import *
 
 from gi.repository import Gst, GObject, Gio
 
 import paramiko 
-
+import time
 #####
 
 import socket 
@@ -143,7 +144,7 @@ class ssh:
 
     
 
-connection = ssh("169.254.35.81", "robot", "maker")
+connection = ssh("169.254.110.225", "robot", "maker")
                        
 connection.sendCommand("python3 TestDegrees.py")
 
@@ -155,7 +156,7 @@ Gst.init(None)
     exit(1)
 """
 
-uri = Gio.File.new_for_commandline_arg("final.wav").get_uri()#"Nightwish_-_Storytime_audiopoisk.wav"
+uri = Gio.File.new_for_commandline_arg("michael.wav").get_uri()#"Nightwish_-_Storytime_audiopoisk.wav"
 print("Processing file: ", uri)
 
 def on_complete(bpm, error):
@@ -172,5 +173,3 @@ detect_bpm(uri, on_complete)
 
 ml = GObject.MainLoop()
 ml.run()
-
-
