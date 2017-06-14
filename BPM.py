@@ -1,15 +1,4 @@
 #!/usr/bin/env python
-'''
-    Simple program that uses the 'bpmdetect' GStreamer plugin to detect
-    the BPM of a song, and outputs that to console. 
-
-    Requires GStreamer 1.x, PyGObject 1.x, and gst-plugins-bad
-    Copyright (C) 2015 Dustin Spicuzza
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License version 2 as
-    published by the Free Software Foundation.
-'''
-
 
 from __future__ import print_function
 from paramiko import client
@@ -22,19 +11,13 @@ from gi.repository import Gst, GObject, Gio
 
 import paramiko 
 import time
+
 #####
 
 import socket 
 
 def detect_bpm(uri, on_complete):
 
-    '''
-        Detects the BPM of a song using GStreamer's bpmdetect plugin
-        .. note:: The plugin emits the BPM at various times during 
-                  song processing, but the bpm detector accumulates
-                  the results so this will only return the last
-                  result.
-    '''
 
     bpm = [None]
     def _on_message(bus, msg):
@@ -73,9 +56,6 @@ def detect_bpm(uri, on_complete):
 
     audio_sink = Gst.Bin.new('audiosink')
 
-    # bpmdetect doesn't work properly with more than one channel, 
-    # see https://bugzilla.gnome.org/show_bug.cgi?id=751457
-
     cf = Gst.ElementFactory.make('capsfilter')
     cf.props.caps = Gst.Caps.from_string('audio/x-raw,channels=1')
 
@@ -111,38 +91,19 @@ class ssh:
     client = None
 
     def __init__(self, address, username, password):
-            # Let the user know we're connecting to the server
             print("Connecting to server.")
-            # Create a new SSH client
             self.client = client.SSHClient()
-            # The following line is required if you want the script to be able to access a server that's not yet in the known_hosts file
             self.client.set_missing_host_key_policy(client.AutoAddPolicy())
-            # Make the connection
             self.client.connect(address, username=username, password=password)
 
     def sendCommand(self, command):
-            # Check if connection is made previously
             if(self.client):
                 stdin, stdout, stderr = self.client.exec_command(command)
-                '''while not stdout.channel.exit_status_ready():
-                    # Print stdout data when available
-                    if stdout.channel.recv_ready():
-                        # Retrieve the first 1024 bytes
-                        alldata = stdout.channel.recv(1024)
-                        while stdout.channel.recv_ready():
-                            # Retrieve the next 1024 bytes
-                            alldata += stdout.channel.recv(1024)
-                        # Print as string with utf8 encoding
-                        print(str(alldata))'''
-                #self.client.close() 
             else:
                 print("Connection not opened.")
 
-
 #####
-
-
-    
+  
 
 connection = ssh("169.254.110.225", "robot", "maker")
                        
@@ -150,13 +111,8 @@ connection.sendCommand("python3 TestDegrees.py")
 
 
 Gst.init(None)
-"""if len(sys.argv) != 2:
-    print("Usage: %s filename\n" % sys.argv[0])
-    print(inspect.cleandoc(__doc__))
-    exit(1)
-"""
 
-uri = Gio.File.new_for_commandline_arg("michael.wav").get_uri()#"Nightwish_-_Storytime_audiopoisk.wav"
+uri = Gio.File.new_for_commandline_arg("michael.wav").get_uri()
 print("Processing file: ", uri)
 
 def on_complete(bpm, error):
