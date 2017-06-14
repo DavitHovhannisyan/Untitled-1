@@ -107,7 +107,7 @@ class ssh:
 
 connection = ssh("169.254.110.225", "robot", "maker")
                        
-connection.sendCommand("python3 TestDegrees.py")
+connection.sendCommand("python3 EV3.py")
 
 
 Gst.init(None)
