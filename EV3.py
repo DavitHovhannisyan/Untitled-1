@@ -10,7 +10,7 @@ f=open("bpm.txt","r")
 bpm = int(f.readline()) #Must be fixed
 print(bpm)
 sleepTime = 0.092*1.5
-power = 300
+power = ((bpm-80)/120)*300+200
 
 M1A1 = MediumMotor('outA')
 M1A2 = MediumMotor('outB')
