@@ -24,3 +24,7 @@ Here is my used code.
 - BPMFinal.py must stay in Raspberry Pi, but others should be sended to EV3 via SSH.
 - Preferred music file should have .wav extension, otherwise program wouldn't run it.
 - Finally rename your music file's name to "demo.wav". 
+- Change the IP address in 147th line of BPMFinal.py program.
+- Run this "sudo python BPMFinal.py && aplay demo.wav"
+
+#### Have fun :) 
