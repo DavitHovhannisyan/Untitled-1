@@ -26,6 +26,7 @@ Project aims to create a robot that is able to dance under any music by counting
 - Change the IP address in 147th line of BPMFinal.py program.
 - Run this "sudo python BPMFinal.py && aplay demo.wav"
 
+
 References:
  - https://gist.github.com/virtuald/c30032a5b8cdacd1a6c0
  - https://2017.spaceappschallenge.org/challenges/ideate-and-create/bring-your-own-solution/teams/untitled_1/project
