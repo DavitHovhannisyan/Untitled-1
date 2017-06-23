@@ -1,16 +1,6 @@
 # Smart Dancing Robot
-Project aims to create a robot that is able to dance under any music by counting the BPM of music and mooving according to it. In other words the robot dances feeling the rhythm of the music. 
 
-
-to undestand a BPM of a random music and realize a real-time dance by using 
-Raspberry Pi (Python language) and EV3 brick.  My program consist of two parts: BPM counter and motor controller. First of all I have  researched about existing algorithms so that helped me during my work. 
-
-
-
-Project's aim is to create a program for robots to undestand a BPM of a random music and realize a real-time dance by using 
-Raspberry Pi (Python language) and EV3 brick.  My program consist of two parts: BPM counter and motor controller. First of all I have  researched about existing algorithms so that helped me during my work. 
-
-[References](https://gist.github.com/virtuald/c30032a5b8cdacd1a6c0)
+Project aims to create a robot that is able to dance under any music by counting the BPM (Beats per minute) and and realize a real-time dance by using Raspberry Pi (Python language) and EV3 brick. In other words the robot dances by feeling the rhythm of the music. This program consist of two parts: BPM counter and dance part. 
 
 
 ### Robot's algorithm
@@ -35,5 +25,10 @@ Raspberry Pi (Python language) and EV3 brick.  My program consist of two parts: 
 - Finally rename your music file's name to "demo.wav". 
 - Change the IP address in 147th line of BPMFinal.py program.
 - Run this "sudo python BPMFinal.py && aplay demo.wav"
+
+References:
+ - https://gist.github.com/virtuald/c30032a5b8cdacd1a6c0
+ - https://2017.spaceappschallenge.org/challenges/ideate-and-create/bring-your-own-solution/teams/untitled_1/project
+
 
 #### Have fun :) 
