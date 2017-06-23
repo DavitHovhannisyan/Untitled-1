@@ -28,8 +28,10 @@ Project aims to create a robot that is able to dance under any music by counting
 
 
 References:
- - https://gist.github.com/virtuald/c30032a5b8cdacd1a6c0
- - https://2017.spaceappschallenge.org/challenges/ideate-and-create/bring-your-own-solution/teams/untitled_1/project
+- https://drive.google.com/open?id=0BySUMIW0s8zZUGhGZDNxTXp2dDg
+- https://2017.spaceappschallenge.org/challenges/ideate-and-create/bring-your-own-solution/teams/untitled_1/project
+- https://gist.github.com/virtuald/c30032a5b8cdacd1a6c0
+
 
 
 #### Have fun :) 
